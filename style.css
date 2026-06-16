@@ -13,41 +13,229 @@ header {
     background-color: black;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
 }
 header p {
     margin-top: 10px;
+    font-size: 18px;
+}
+header h1 {
+    font-size: 45px;
 }
 
-.produtos {
-    padding: 20px;
+nav {
+    margin-top: 20px;    
+}
+
+.menu {
+    list-style: none;
     display: flex;
-    gap: 20px;
     justify-content: center;
+    gap: 30px;    
+}
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.menu li a:hover {
+    color: #00ff88;
+}
+.menu i {
+    font-size: 22px;
+}
+.menu i:hover {
+    color: #00ff88;
+}
+
+.pesquisar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;    
+}
+.pesquisar input {
+    width: 300px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.pesquisar button {
+    padding: 12px 20px;
+    border: none;
+    background: green;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.pesquisar button:hover {
+    background: darkgreen;
+}
+
+.produtos {    
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    flex-wrap: wrap;
+   
 }
 
 .produto {
-    width: 200px;
-    border: 1px solid #ccc;
-    padding: 15px;
+    background: white;
+    width: 280px;
+    border: 12px;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    transform: 0.3s;
 }
 .produto img {
     width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+.produto:hover {
+    transform: translateY(-8px);
+}
+.produto h2 {
+    margin: 15px 0;
+}
+
+.preco {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    margin-bottom: 10px;
 }
 
 .btn-comprar {
     background-color: green;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 12px;
     width: 100%;
     margin-top: 10px;
     cursor: pointer;
+    border-radius: 6px;
 }
 .btn-comprar:hover {
     background-color: darkgreen;
 }
+.btn-detalhes {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.btn-detalhes:hover {
+    background: black;
+}
+
+.carrinho {
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 95%;
+    background-color: white;
+}
+.carrinho h2 {
+    margin-bottom: 15px;    
+}
+
+#lista-carrinho li {
+    color: #444;
+    list-style: none;
+}
+
+.banner {
+    text-align: center;
+    padding: 30px;
+    background: #fff;
+    margin: 20px;
+    border-radius: 10px;
+}
+.banner h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.banner p {
+    color: #666;
+    font-size: 18px;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+.modal-conteudo {
+    background: white;
+    width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.modal-conteudo img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+.modal-conteudo h2 {
+    margin-top: 10px;
+    font-size: 28px;
+}
+.modal-preco {
+    color: green;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.modal-conteudo p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.fechar:hover {
+    color: red;
+}
+
+
+
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
 
 
 
@@ -55,9 +243,16 @@ header p {
 
 
 
-@media (max-width: 768x) {
+
+
+
+@media (max-width: 768px) {
     .produtos {
         flex-direction: column;
         align-items: center;
+    }
+
+    .produto {
+        width: 90%;
     }
 }

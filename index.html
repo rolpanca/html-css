@@ -4,15 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <title>Meu-Brechó</title>
 </head>
+
 
 <body>
 
     <header>
         <h1>Meu Brechó</h1>
-        <p>Moda bonita com preço baixo</p>       
+        <p>Moda bonita com preço baixo</p>  
+        
+        <nav>
+            <ul class="menu">
+                <li> <a href="#">Inicio</a> </li>
+                <li> <a href="#">Masculino</a> </li>
+                <li> <a href="#">Feminino</a> </li>
+                <li> <a href="#">Infantil</a> </li>
+                <li> <a href="#">Promoções</a> </li>
+                <li> <a href="#">Contato</a> </li>
+
+                <a href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </ul>
+        </nav>
+
+        <div class="pesquisar">
+            <input type="text" placeholder="Pesquisar produtos...">
+            <button>Buscar</button>
+        </div>
+
     </header>
+
+    <section class="carrinho">
+        <h2>Carrinho</h2>
+
+        <ul id="lista-carrinho">
+            <li>Seu carrinho está vazio</li>
+        </ul>
+    </section>
+
+
+    <section class="banner">
+        <h2>Novidades da Semana</h2>
+        <p>Peças selecionadas com descontos</p>
+    </section>
+
 
     <main>
         <section class="produtos">
@@ -20,18 +60,22 @@
             <article class="produto">
                 <img src="img/camisa.png" alt="">
                 <h2>Camisa</h2>
-                <p> R$39,90 </p>
+                <p class="preco"> R$39,90 </p>
                 <p>Camisa em algodão, tamanho M</p>
 
-                <button class="btn-comprar">Comprar</button>
+                <button class="btn-detalhes">Ver detalhes</button>
+
+                <button class="btn-comprar">Comprar</button> 
 
             </article>
 
             <article class="produto">
                 <img src="img/calça jeans1.png" alt="">
                 <h2>Calça Jeans</h2>
-                <p> R$69,90 </p>
+                <p class="preco"> R$69,90 </p>
                 <p>Calça Jeans, tamanho M</p>
+
+                <button class="btn-detalhes">Ver detalhes</button>
 
                 <button class="btn-comprar">Comprar</button>
 
@@ -40,8 +84,10 @@
             <article class="produto">
                 <img src="img/blusa1.png" alt="">
                 <h2>Blusa</h2>
-                <p> R$49,90 </p>
+                <p class="preco"> R$49,90 </p>
                 <p>Blusa elegante, tamanho M</p>
+
+                <button class="btn-detalhes">Ver detalhes</button>
 
                 <button class="btn-comprar">Comprar</button>
 
@@ -49,6 +95,26 @@
 
         </section>
     </main>
+
+    <div class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <img src="img/camisa.png" alt="Produto">
+            <h2>Camisa</h2>
+            <p class="modal-preco">R$39,90</p>
+            <p>
+                Camisa em algodão premium, confortavel, ideal para o dia dia.
+            </p>
+            <button class="btn-comprar">Comprar agora</button>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>@ 2026 Meu Brechó - Todos os direitos reservados</p>
+    </footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>

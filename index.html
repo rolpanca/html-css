@@ -26,9 +26,11 @@
                 <li> <a href="#">Promoções</a> </li>
                 <li> <a href="#">Contato</a> </li>
 
-                <a href="#">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
             </ul>
         </nav>
 
@@ -45,6 +47,8 @@
         <ul id="lista-carrinho">
             <li>Seu carrinho está vazio</li>
         </ul>
+
+        <p class="total">Total: R$ 0,00</p>
     </section>
 
 
@@ -53,14 +57,63 @@
         <p>Peças selecionadas com descontos</p>
     </section>
 
+    <section class="categorias">
+        <div class="categoria">Masculino</div>
+        <div class="categoria">Feminino</div>
+        <div class="categoria">Infantil</div>
+        <div class="categoria">Acessórios</div>
+    </section>
+
+    <section class="filtros">
+
+        <h2>Filtrar produtos</h2>
+
+        <div class="filtro-box">
+
+            <select>
+                <option>Categoria</option>
+                <option>Masculino</option>
+                <option>Feminino</option>
+                <option>Infantil</option>
+            </select>
+
+            <select>
+                <option>Tamanho</option>
+                <option>P</option>
+                <option>M</option>
+                <option>G</option>
+                <option>GG</option>
+            </select>
+
+            <section>
+                <option>Preço</option>
+                <option>Até R$50</option>
+                <option>Até R$100</option>
+                <option>Acima de R$100</option>
+            </section>
+
+            <button class="btn-filtrar">Filtrar</button>
+
+        </div>
+
+    </section>
+
+
 
     <main>
         <section class="produtos">
 
             <article class="produto">
+
+                <span class="badge">PROMOÇÃO</span>
+
                 <img src="img/camisa.png" alt="">
                 <h2>Camisa</h2>
                 <p class="preco"> R$39,90 </p>
+
+                <div class="avaliacao">
+                    ★★★★★
+                </div>
                 <p>Camisa em algodão, tamanho M</p>
 
                 <button class="btn-detalhes">Ver detalhes</button>
@@ -70,9 +123,17 @@
             </article>
 
             <article class="produto">
+
+                <span class="badge">PROMOÇÃO</span>
+
                 <img src="img/calça jeans1.png" alt="">
                 <h2>Calça Jeans</h2>
                 <p class="preco"> R$69,90 </p>
+
+                 <div class="avaliacao">
+                    ★★★★☆
+                </div>
+
                 <p>Calça Jeans, tamanho M</p>
 
                 <button class="btn-detalhes">Ver detalhes</button>
@@ -82,9 +143,17 @@
             </article>
 
             <article class="produto">
+
+                <span class="badge">PROMOÇÃO</span>
+
                 <img src="img/blusa1.png" alt="">
                 <h2>Blusa</h2>
                 <p class="preco"> R$49,90 </p>
+
+                 <div class="avaliacao">
+                    ★★★☆☆
+                </div>
+
                 <p>Blusa elegante, tamanho M</p>
 
                 <button class="btn-detalhes">Ver detalhes</button>
@@ -110,8 +179,28 @@
     </div>
 
 
+    <section class="newsletter">
+        <h2>Receba nossas Promoções</h2>
+        <p>Cadastre seu e-mail e fique por dentro das novidades</p>
+
+        <div class="newsletter-box">
+            <input type="email" placeholder="Digite seu e-mail">
+            <button>Cadastrar</button>            
+        </div>
+
+    </section>
+
+
     <footer>
-        <p>@ 2026 Meu Brechó - Todos os direitos reservados</p>
+        <p>@copy; 2026 Meu Brechó - Todos os direitos reservados</p>
+
+        <div class="redes-sociais">
+            <a href="#"> <i class="fa-brands fa-instagram"></i> </a>
+            <a href="#"> <i class="fa-brands fa-whatsapp"></i> </a>
+            <a href="#"> <i class="fa-brands fa-facebook"></i> </a>
+            <a href="#"> <i class="fa-brands fa-tiktok"></i> </a>
+        </div>
+
     </footer>
 
 <script src="script.js"></script>

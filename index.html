@@ -30,16 +30,20 @@
                     <a href="#">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a>
+
                 </li>
+
             </ul>
         </nav>
 
         <div class="pesquisar">
             <input type="text" placeholder="Pesquisar produtos...">
+
             <button>Buscar</button>
         </div>
 
-    </header>
+    </header>    
+    
 
     <section class="carrinho">
         <h2>Carrinho</h2>
@@ -53,9 +57,44 @@
 
 
     <section class="banner">
-        <h2>Novidades da Semana</h2>
-        <p>Peças selecionadas com descontos</p>
+
+        <div class="slides">
+
+            <img src="img/banner1.png" class="slide ativo" alt="Banner 1">
+            <img src="img/banner2.png" class="slede" alt="Banner 2">
+            <img src="img/banner3.png" class="slede" alt="Banner 3"> 
+            <img src="img/1.png" class="slide" alt="Banner 4">           
+
+        </div>       
+        
     </section>
+
+    <section class="destaques">
+        <h2>Produtos em Destaques</h2>
+        <div class="destaques-box">
+
+            <div class="destaque-item">
+                <img src="img/camisa.png" alt="Camisa">
+                <h3>Camisa premium</h3>
+                <p>Mais vendido da semana</p>
+            </div>
+
+            <div class="destaque-item">
+                <img src="img/blusa1.png" alt="Blusa">
+                <h3>Blusa Elegante</h3>
+                <p>Nova coleção</p>
+            </div>
+
+            <div class="destaque-item">
+                <img src="img/calça jeans1.png" alt="Calça Jeans">
+                <h3>Calça Jeans</h3>
+                <p>Oferta especial</p>
+            </div>
+
+        </div>
+    </section>
+
+
 
     <section class="categorias">
         <div class="categoria">Masculino</div>
@@ -103,7 +142,7 @@
     <main>
         <section class="produtos">
 
-            <article class="produto">
+            <article class="produto" data-id="1">
 
                 <span class="badge">PROMOÇÃO</span>
 
@@ -118,11 +157,12 @@
 
                 <button class="btn-detalhes">Ver detalhes</button>
 
-                <button class="btn-comprar">Comprar</button> 
+                
+                <a href="carrinho.html" class="btn-comprar">Comprar</a>
 
             </article>
 
-            <article class="produto">
+            <article class="produto" data-id="2">
 
                 <span class="badge">PROMOÇÃO</span>
 
@@ -138,11 +178,11 @@
 
                 <button class="btn-detalhes">Ver detalhes</button>
 
-                <button class="btn-comprar">Comprar</button>
+                <a href="carrinho.html" class="btn-comprar">Comprar</a>
 
             </article>
 
-            <article class="produto">
+            <article class="produto" data-id="3">
 
                 <span class="badge">PROMOÇÃO</span>
 
@@ -158,12 +198,90 @@
 
                 <button class="btn-detalhes">Ver detalhes</button>
 
-                <button class="btn-comprar">Comprar</button>
+                <a href="carrinho.html" class="btn-comprar">Comprar</a>
 
             </article>
 
         </section>
     </main>
+
+
+    <section class="pagamentos">
+
+        <h2>Formas de pagamentos</h2>
+
+        
+        <div class="pagamento-box">
+
+            <div class="pagamento-item">
+                <i class="fa-solid fa-credit-card"></i>
+                <p>Cartão de Créddito</p>
+            </div>
+
+            <div class="pagamento-item">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <p>Pix</p>
+            </div>
+
+            <div class="pagamento-item">
+                <i class="fa-solid fa-barcode"></i>
+                <p>Boleto Bancario</p>
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+
+    <section class="entrega">
+
+        <h2>Informações de Entrega</h2>
+
+        <div class="entrega-box">
+
+            <div class="entrega-item">
+                <i class="fa-solid fa-truck"></i>
+                <p>Entregamos para todo Brasil</p>
+            </div>
+
+            <div class="entrega-item">
+                <i class="fa-solid fa-box-open"></i>
+                <p>Frente grátis acima de R$150</p>
+            </div>
+
+            <div class="entrega-item">
+                <i class="fa-solid fa-clock"></i>
+                <p>Prazo de entrega de 3 a 10 dias</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="depoimentos">
+
+        <h2>O que nossos clientes dizem</h2>
+
+        <div class="depoimentos-box">
+
+            <div depoimento-item>
+                <p>Adorei a qualidade das roupase a entrega foi rápida!</p>
+                <h4>- Maria Silva</h4>
+            </div>
+
+            <div class="depoimento-item">
+                <p>Comprei pela primeira vez e já virei cliente.</p>
+                <h4>- Ana Souza</h4>
+            </div>
+
+        </div>
+
+    </section>
+
+
 
     <div class="modal">
         <div class="modal-conteudo">

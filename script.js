@@ -20,7 +20,7 @@ botoesComprar.forEach(function(botao){
 
         const produto = botao.closest('.produto');
 
-        console.log(produto);
+       
 
         const nome = produto.querySelector('h2').textContent;
         const preco = produto.querySelector('.preco').textContent;
@@ -33,8 +33,7 @@ botoesComprar.forEach(function(botao){
             return item.nome === nome;
         });
 
-        console.log('Nome clicado:', nome);
-        console.log('produto encontrado:', produtoExistente);
+       
 
         if (produtoExistente) {
             produtoExistente.quantidade++;
@@ -48,46 +47,8 @@ botoesComprar.forEach(function(botao){
         };
 
         atualizarCarrinho(); 
-        salvarCarrinho();        
-
-        console.log(carrinho);
-
-        total += valor;
-        totalCarrinho.textContent = 'Total: R$ ' + total.toFixed(2).replace('.' ,',');
-
-        /*
-        const item = document.createElement('li');
-
-        const botaoRemover = document.createElement('button');
-        botaoRemover.textContent = 'Remover';
-
-        item.textContent = nome + ' - ' + preco;*/
-
-        // item.appendChild(botaoRemover);
-        
-        // botaoRemover.addEventListener('click', function(){
-
-        //     total -= valor;
-
-        //     listaCarrinho.removeChild(item);
-        //     totalCarrinho.textContent = 'Total: R$ ' + total.toFixed(2).replace('.', ',');
-
-        //     if(listaCarrinho.children.length === 0){
-        //         listaCarrinho.innerHTML = '<li>Seu carrinho está vazio</li>';
-        //     }
-
-        // });
-
-
-        // if(listaCarrinho.textContent.includes("Seu carrinho está vazio")){
-        //     listaCarrinho.innerHTML = '';
-        // };
-      
-        // listaCarrinho.appendChild(item);
-
-        console.log(listaCarrinho);
-       
-        console.log("clique no botão Comprar");
+        salvarCarrinho();       
+                               
     });
     
 });
@@ -103,8 +64,7 @@ botoesDetalhes.forEach(function(botao) {
         const descricao = produto.querySelector('p:last-of-type').textContent;
         
 
-        console.log(produto);
-        console.log(nome);
+       
 
         modal.querySelector('.modal-nome').textContent = nome;
         modal.querySelector('.modal-img').src = imagem;
@@ -130,8 +90,7 @@ const slides = document.querySelectorAll('.slide');
 let index = 0;
 
 function trocarBanner() {
-    slides[index].classList.remove('ativo');
-    console.log(index);
+    slides[index].classList.remove('ativo');    
 
     index++;
 
@@ -187,6 +146,17 @@ function salvarCarrinho() {
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 };
 
+function carregarCarrinho() {
+    const carrinhoSalvo = localStorage.getItem('carrinho');
+        if (carrinhoSalvo) {
+            carrinho = JSON.parse(carrinhoSalvo);
+        } else {
+            carrinho = [];
+        }
+        atualizarCarrinho();
+};
+
+
 const carrinhoSalvo = localStorage.getItem('carrinho');
 
     if (carrinhoSalvo) {
@@ -194,6 +164,12 @@ const carrinhoSalvo = localStorage.getItem('carrinho');
 
         atualizarCarrinho();
     };
+
+    window.addEventListener('focus', function(){
+
+       carregarCarrinho();
+
+    });
 
 
 

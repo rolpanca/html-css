@@ -24,6 +24,8 @@ botoesComprar.forEach(function(botao){
 
         const nome = produto.querySelector('h2').textContent;
         const preco = produto.querySelector('.preco').textContent;
+        const imagem = produto.querySelector('img').src;
+
 
         const valor = Number(preco.replace('R$', '').replace(',', '.'));
 
@@ -40,7 +42,8 @@ botoesComprar.forEach(function(botao){
             carrinho.push({
                 nome: nome,
                 preco: valor,
-                quantidade: 1
+                quantidade: 1,
+                imagem: imagem
             });
         };
 
@@ -83,7 +86,7 @@ botoesComprar.forEach(function(botao){
         // listaCarrinho.appendChild(item);
 
         console.log(listaCarrinho);
-        console.log(item);
+       
         console.log("clique no botão Comprar");
     });
     

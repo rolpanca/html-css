@@ -1,7 +1,24 @@
 const listaCheckout = document.getElementById('lista-checkout');
 const totalCheckout = document.getElementById('total-checkout');
 const btnFinalizar = document.getElementById('btn-finalizar');
-console.log(btnFinalizar);
+
+const pagamento = document.querySelectorAll('input[nome="pagamento"]');
+
+
+console.log(pagamento);
+console.log(pagamento.length);
+
+
+const nome = document.getElementById('name');
+const email = document.getElementById('email');
+const telefone = document.getElementById('telefone');
+
+const cep = document.getElementById('cep');
+const rua = document.getElementById('rua');
+const numero = document.getElementById('numero');
+const bairro = document.getElementById('bairro')
+const cidade = document.getElementById('cidade');
+const estado = document.getElementById('estado');
 
 let carrinho = [];
 
@@ -44,5 +61,46 @@ const carrinhoSalvo = localStorage.getItem('carrinho');
     atualizarCheckout();
 
     btnFinalizar.addEventListener('click', function() {
-        alert('Pedido realizado com sucesso!');
+        
+        if (
+            nome.value === '' ||
+            email.value === '' ||
+            telefone.value === '' ||
+            cep.value === '' ||
+            rua.value === '' ||
+            numero.value === '' ||
+            bairro.value === '' ||
+            cidade.value === '' ||
+            estado.value === '' 
+        ) {
+            alert('Preencha todos os campos obrigatóros!');
+            return;
+        }
+
+        let pagamentoSelecionado = false;
+
+        pagamento.forEach(function(opcao) {
+            if (opcao.checkoud) {
+                pagamentoSelecionado = true;
+            }
+        });
+
+        if (!pagamentoSelecionado) {
+            alert('Selecione um forma de pagamento!');
+
+            return;
+        }
+
+        btnFinalizar.disabled = true;
+        btnFinalizar.textContent = 'Processando...';
+
+        localStorage.removeItem('carrinho');
+
+        carrinho = [];
+
+        setTimeout(function() {
+            window.location.href = 'confirmacao.html';
+        }, 2000);
+
+        
     });

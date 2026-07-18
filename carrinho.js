@@ -11,6 +11,12 @@ const carrinhoSalvo = localStorage.getItem('carrinho');
         carrinho = JSON.parse(carrinhoSalvo);
     };
 
+    if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio!');
+
+        window.location.href = 'carrinho.html';
+    }
+
     function atualizarCarrinho() {
         total = 0;
 

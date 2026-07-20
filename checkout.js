@@ -2,14 +2,14 @@ const listaCheckout = document.getElementById('lista-checkout');
 const totalCheckout = document.getElementById('total-checkout');
 const btnFinalizar = document.getElementById('btn-finalizar');
 
-const pagamento = document.querySelectorAll('input[nome="pagamento"]');
+const pagamento = document.querySelectorAll('input[name="pagamento"]');
 
 
 console.log(pagamento);
 console.log(pagamento.length);
 
 
-const nome = document.getElementById('name');
+const nome = document.getElementById('nome');
 const email = document.getElementById('email');
 const telefone = document.getElementById('telefone');
 
@@ -80,7 +80,7 @@ const carrinhoSalvo = localStorage.getItem('carrinho');
         let pagamentoSelecionado = false;
 
         pagamento.forEach(function(opcao) {
-            if (opcao.checkoud) {
+            if (opcao.checked) {
                 pagamentoSelecionado = true;
             }
         });

@@ -13,7 +13,57 @@ const nome = document.getElementById('nome');
 const email = document.getElementById('email');
 const telefone = document.getElementById('telefone');
 
+telefone.addEventListener('input', function(){
+    let valor = telefone.value;
+    valor = valor.replace(/\D/g, '');
+    valor = valor.substring(0, 11);
+
+    if (valor.length > 2) {
+        valor = '(' + valor.substring(0, 2) + ') ' + valor.substring(2);
+    }
+
+    if (valor.length > 10) {
+        valor = valor.substring(0, 10) + '-' + valor.substring(10);
+    }
+
+    telefone.value = valor;
+});
+
+
 const cep = document.getElementById('cep');
+
+    cep.addEventListener('input', function(){
+        let valor = cep.value;
+        valor = valor.replace(/\D/g, '');   
+        valor = valor.substring(0, 8);  
+        
+        if (valor.length > 5) {
+            valor = valor.substring(0, 5) + '-' + valor.substring(5);
+        }
+
+        cep.value = valor;        
+    });
+
+    cep.addEventListener('blur', function(){
+        let cepDigitado = cep.value.replace(/\D/g, '');
+
+        if (cepDigitado.length !== 8) {
+            return;
+        }
+
+        fetch(`https://viacep.com.br/ws/${cepDigitado}/json/`)
+            .then(function(resposta) {
+                return resposta.json();
+            })
+            .then(function(dados){
+                rua.value = dados.logradouro;
+                bairro.value = dados.bairro;
+                cidade.value = dados.localidade;
+                estado.value = dados.uf;
+            });
+    });
+
+
 const rua = document.getElementById('rua');
 const numero = document.getElementById('numero');
 const bairro = document.getElementById('bairro')
@@ -98,9 +148,12 @@ const carrinhoSalvo = localStorage.getItem('carrinho');
 
         carrinho = [];
 
+        const numeroPedido = Math.floor(Math.random() * 900000 + 100000);
+
+        localStorage.setItem('numeroPedido', numeroPedido);
+
         setTimeout(function() {
             window.location.href = 'confirmacao.html';
         }, 2000);
-
         
     });

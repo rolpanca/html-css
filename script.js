@@ -4,6 +4,41 @@ const botaoFechar = document.querySelector('.fechar');
 const listaCarrinho = document.getElementById('lista-carrinho');
 const botoesComprar = document.querySelectorAll('.btn-comprar');
 
+const pesquisa = document.getElementById('pesquisa');
+
+const produtos = document.querySelectorAll('.produto');
+
+console.log("Quantidade de produtos:", produtos.length);
+
+
+
+pesquisa.addEventListener('keyup', function(){
+
+    const textoPesquisa = pesquisa.value.toLowerCase();
+
+    // console.log("pesquisa...")
+
+    produtos.forEach(function(produto){
+
+        const nomeProduto = produto.querySelector('h2').textContent.toLowerCase();
+
+
+        console.log(nomeProduto, textoPesquisa);      
+
+        if (nomeProduto.includes(textoPesquisa)) {
+
+            console.log("Mostrar:", nomeProduto);
+
+            produto.style.display = '';
+        }else {
+            produto.style.display = 'none';
+        }
+        
+
+    });
+
+});
+
 let total = 0;
 
 const totalCarrinho = document.querySelector('.total');

@@ -1,3 +1,7 @@
+console.log(ScriptProcessorNode.js, carregado);
+console.log(produtos);
+console.log(produtos.length);
+
 const listaCarrinho = document.getElementById('lista-carrinho-pagina');
 const totalCarrinho = document.getElementById('total-carrinho-pagina');
 

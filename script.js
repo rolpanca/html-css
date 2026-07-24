@@ -1,22 +1,40 @@
+//=======================================================
+//ELEMENTOS DA PAGINA
+//=========================================================
 const modal = document.querySelector('.modal');
 const botoesDetalhes = document.querySelectorAll('.btn-detalhes');
 const botaoFechar = document.querySelector('.fechar');
+
+
 const listaCarrinho = document.getElementById('lista-carrinho');
+const totalCarrinho = document.querySelector('.total');
+
 const botoesComprar = document.querySelectorAll('.btn-comprar');
 
-const pesquisa = document.getElementById('pesquisa');
 
+const pesquisa = document.getElementById('pesquisa');
 const produtos = document.querySelectorAll('.produto');
 
-console.log("Quantidade de produtos:", produtos.length);
 
+const slides = document.querySelectorAll('.slide');
+const contador = document.getElementById('contador-carrinho');
 
+//======================================================================================
+//VARIÁVEIS
+//======================================================================================
+let carrinho = [];
+let total = 0;
+let index = 0;
+
+//=======================================================================================
+//PESQUISA DE produtos
+//=======================================================================================
+ //  Código de pesquisa
+ 
 
 pesquisa.addEventListener('keyup', function(){
 
-    const textoPesquisa = pesquisa.value.toLowerCase();
-
-    // console.log("pesquisa...")
+    const textoPesquisa = pesquisa.value.toLowerCase();   
 
     produtos.forEach(function(produto){
 
@@ -32,30 +50,23 @@ pesquisa.addEventListener('keyup', function(){
             produto.style.display = '';
         }else {
             produto.style.display = 'none';
-        }
-        
+        }        
 
     });
 
 });
 
-let total = 0;
-
-const totalCarrinho = document.querySelector('.total');
-
-let carrinho = [];
-
-
+//==============================================================================================
+//BOTÕES COMPRAR
+//==============================================================================================
 
 botoesComprar.forEach(function(botao){
 
     botao.addEventListener('click', function(event) {
 
-        event.preventDefault();
+        event.preventDefault();        
 
-        const produto = botao.closest('.produto');
-
-       
+        const produto = botao.closest('.produto');       
 
         const nome = produto.querySelector('h2').textContent;
         const preco = produto.querySelector('.preco').textContent;
@@ -80,15 +91,16 @@ botoesComprar.forEach(function(botao){
                 imagem: imagem
             });
         };
-
         atualizarCarrinho(); 
-        salvarCarrinho();       
-                               
+        salvarCarrinho();    
+                              
     });
     
 });
 
-
+//=============================================================================================
+//MODAL DOS PRODUTOS
+//================================================================================================
 
 botoesDetalhes.forEach(function(botao) {
     botao.addEventListener('click', function() {        
@@ -96,10 +108,7 @@ botoesDetalhes.forEach(function(botao) {
         const nome = produto.querySelector('h2').textContent;
         const imagem = produto.querySelector('img').src;
         const preco = produto.querySelector('.preco').textContent
-        const descricao = produto.querySelector('p:last-of-type').textContent;
-        
-
-       
+        const descricao = produto.querySelector('p:last-of-type').textContent;             
 
         modal.querySelector('.modal-nome').textContent = nome;
         modal.querySelector('.modal-img').src = imagem;
@@ -121,8 +130,10 @@ modal.addEventListener('click', function(event){
     }
 });
 
-const slides = document.querySelectorAll('.slide');
-let index = 0;
+
+//==================================================================================================
+//BANNER AUTOMÁTICO
+//===================================================================================================
 
 function trocarBanner() {
     slides[index].classList.remove('ativo');    
@@ -136,6 +147,10 @@ function trocarBanner() {
     slides[index].classList.add('ativo');    
 }
 setInterval(trocarBanner, 3000);
+
+//==========================================================================================
+//FUNÇÕES DO CARRINHO
+//=======================================================================================
 
 function atualizarCarrinho() {
         total = 0;
@@ -154,7 +169,7 @@ function atualizarCarrinho() {
 
             <strong class="quantidade">x${produto.quantidade}</strong>
 
-            <button class="btn-mais">+</button>
+            <button class="btn-mais">+</button>        
         `;
         const botaoMais = item.querySelector('.btn-mais');
         const botaoMenos = item.querySelector('.btn-menos');
@@ -179,15 +194,16 @@ function atualizarCarrinho() {
             atualizarCarrinho();
         });
 
+        
         const botaoRemover = document.createElement('button');
         botaoRemover.textContent = 'Remover';
+        botaoRemover.classList.add('btn-remover');
+
 
         item.appendChild(botaoRemover);
 
         botaoRemover.addEventListener('click', function(){
-            const indice = carrinho.indexOf(produto);
-
-            // total -= produto.preco * produto.quantidade;
+            const indice = carrinho.indexOf(produto);            
 
             carrinho.splice(indice, 1);
 
@@ -223,7 +239,7 @@ function carregarCarrinho() {
 
 function atualizarContadorCarrinho() {
 
-    const contador = document.getElementById('contador-carrinho');
+    
     let quantidadeTotal = 0;
 
     carrinho.forEach(function(produto){
@@ -231,22 +247,27 @@ function atualizarContadorCarrinho() {
     });
 
     contador.textContent = quantidadeTotal;
-}
+};
+
+carregarCarrinho();
 
 
-const carrinhoSalvo = localStorage.getItem('carrinho');
+//============================================================================================
+//INICIALIZAÇÃO
+//============================================================================================
 
-    if (carrinhoSalvo) {
-        carrinho = JSON.parse(carrinhoSalvo);
+// const carrinhoSalvo = localStorage.getItem('carrinho');
 
-        atualizarCarrinho();
-    };
+// if (carrinhoSalvo) {
+//     carrinho = JSON.parse(carrinhoSalvo);
+//     atualizarCarrinho();
+// }
 
-    window.addEventListener('focus', function(){
+// window.addEventListener('focus', function () {
+//     carregarCarrinho();
+// });
 
-       carregarCarrinho();
-
-    });
+   
 
 
 

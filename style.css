@@ -359,12 +359,9 @@ nav {
     animation: aparecer 0.3s ease;
 }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: scale(1);
-    }
-}
+
+
+
 .modal-conteudo img {
     width: 100%;
     max-width: 280px;
@@ -825,7 +822,7 @@ footer p {
     border-radius: 15px;
     transition: 0.3s;
 }
-.depoimento-item:hover {
+.destaque-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);    
 }
@@ -1244,7 +1241,7 @@ CHECKOUT
     margin-bottom: 15px;
     line-height: 1.7;
 }
-.sobre-imagem {
+.sobre-imagem-img {
     flex: 1;
     width: 100%;
     max-width: 450px;
